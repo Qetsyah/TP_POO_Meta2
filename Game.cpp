@@ -202,7 +202,7 @@ bool Game::commandExecutor(vector <int> &commands){
                     break;
                 case(19):
                     cout << " Comando sair" << endl;
-                    break;
+                    break; // need to terminate program here
             }
     }
 }

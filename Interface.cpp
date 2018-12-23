@@ -25,6 +25,10 @@ cout << "        \\/            \\/         \\/         \\/      \\/            
  
 }
 
+void Interface::printMap() const{
+    vector <Cell*> map = getMap();
+}
+
 string Interface::getFileName(bool correct){
     string FileName;
   

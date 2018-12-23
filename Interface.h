@@ -28,6 +28,7 @@ class Interface {
 public:
 
     void titleScreen()const;
+    void printMap()const;
     string getFileName( bool correct );
     string getCommand();
 
