@@ -22,13 +22,14 @@
 
 #include "Auto.h"
 
+
 using namespace std;
 
 class Interface {
 public:
 
     void titleScreen()const;
-    void printMap()const;
+    void printMap(vector <Cell*> map, int nCol, int nLin)const;
     string getFileName( bool correct );
     string getCommand();
 

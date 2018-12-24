@@ -14,13 +14,15 @@
 #ifndef GAME_H
 #define GAME_H
 
+
+#include "SetUp.h"
+
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 
-#include "SetUp.h"
 
 using namespace std;
 

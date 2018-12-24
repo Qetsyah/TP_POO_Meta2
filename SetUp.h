@@ -17,12 +17,12 @@
 #define MIN_X_SIZE 20   // colunas
 #define MIN_Y_SIZE 10   // linhas
 
-#include "Cell.h"
+
 #include "Ship.h"
 #include "Dock.h"
 #include "Interface.h"
 #include "Player.h"
-#include "Auto.h"
+
 
 #include <vector>
 #include <iostream>
