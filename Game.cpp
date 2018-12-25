@@ -25,6 +25,7 @@ bool Game::running(Interface &interface) {
         int x = commands.size();
         
         if (commands[x - 1] == (-1)) {  //SAIR DO JOGO, O COMANDO EXIT FOI PEDIDO
+            running = false;
         }
         else {  //CHAMA METODO DE EXECUTAR COMANDOS E MANDA VECTOR
             executed = this->commandExecutor(commands);
