@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
     Auto autO;
 
     if((setup.readFile(interface, player, autO)) == true)//começa game
-        on = game.running(interface);
+        on = game.running(interface, autO, player);
     else
         cout << "nao iniciou as variaveis por alguma razao" << endl;
         

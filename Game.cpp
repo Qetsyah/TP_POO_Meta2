@@ -15,7 +15,7 @@
 
 //RUNNING
 
-bool Game::running(Interface &interface) {
+bool Game::running(Interface &interface, Auto &autO, Player &player) {
     bool running, executed, wishes = true;
     vector <int> commands;
     
