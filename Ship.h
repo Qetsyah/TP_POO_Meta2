@@ -24,7 +24,7 @@ class Ship {
     char icon;
     
 public:
-    Ship(Cell* p, char i);
+    Ship(Cell* p);
     ~Ship();
     
     

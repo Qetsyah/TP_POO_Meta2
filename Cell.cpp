@@ -14,6 +14,18 @@
 #include "Cell.h"
 
 
+bool Cell::setX(int xx){
+    x = xx;
+}
+
+bool Cell::setY(int yy){
+    y = yy;
+}
+
+bool Cell::setIcon(char i){
+    icon = i;
+}
+
 char Cell::getIcon() const{
     return icon;
 }

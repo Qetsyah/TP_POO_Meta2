@@ -24,9 +24,9 @@ public:
     ~Cell();
 
 //sets
-    bool setX();
-    bool setY();
-    bool setIcon();
+    bool setX(int xx);
+    bool setY(int yy);
+    bool setIcon(char i);
 //gets
     int getX() const;
     int getY() const;

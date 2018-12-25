@@ -23,7 +23,7 @@
 
 int Ship::counter = 1;
 
-Ship::Ship(Cell* p, char i): position(p), icon(i){
+Ship::Ship(Cell* p): position(p){
         ID = counter++;
 }
 
