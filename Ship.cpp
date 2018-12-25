@@ -21,11 +21,11 @@
 
 #include "Ship.h"
 
-int Ship::counter = 0;
+int Ship::counter = 1;
 
-Ship::Ship(Cell* p): position(p){
+Ship::Ship(Cell* p, char i): position(p), icon(i){
         ID = counter++;
-    }
+}
 
 Ship::~Ship() {
 }
@@ -36,5 +36,14 @@ bool Ship::changePosition(){
 
 Cell* Ship::getPosition() const{
     return position;
+}
+
+void Ship::setPosition(Cell* x){
+    position = x;
+}
+
+void Ship::setPosition(int x, int y){
+    position->setX(x);
+    position->setY(y);
 }
 

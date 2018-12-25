@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Game.o \
 	${OBJECTDIR}/Interface.o \
 	${OBJECTDIR}/Player.o \
+	${OBJECTDIR}/Sailboat.o \
 	${OBJECTDIR}/SetUp.o \
 	${OBJECTDIR}/Ship.o \
 	${OBJECTDIR}/main.o
@@ -105,6 +106,11 @@ ${OBJECTDIR}/Player.o: Player.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Player.o Player.cpp
+
+${OBJECTDIR}/Sailboat.o: Sailboat.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sailboat.o Sailboat.cpp
 
 ${OBJECTDIR}/SetUp.o: SetUp.cpp
 	${MKDIR} -p ${OBJECTDIR}

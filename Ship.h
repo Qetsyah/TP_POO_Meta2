@@ -21,9 +21,10 @@ class Ship {
     int ID;
     static int counter;
     Cell* position;
+    char icon;
     
 public:
-    Ship(Cell* p);
+    Ship(Cell* p, char i);
     ~Ship();
     
     
@@ -32,6 +33,10 @@ public:
 //Gets
     int getId() const;
     Cell* getPosition() const;
+    
+//sets
+    void setPosition (Cell* x);
+    void setPosition (int x, int y);
 };
 
 #endif /* SHIP_H */

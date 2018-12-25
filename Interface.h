@@ -26,6 +26,7 @@
 using namespace std;
 
 class Interface {
+    
 public:
 
     void titleScreen()const;
