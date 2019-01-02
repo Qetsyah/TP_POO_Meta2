@@ -23,85 +23,90 @@ cout << " |       _/  |  \\/     \\   >  _ </\\  |    |  _/\\__  \\   __\\   __\
 cout << " |    |   \\  |  /  Y Y  \\ /  <_\\ \\/  |    |   \\ / __ \\|  |  |  | |  |_\\  ___/ \\___ \\ "    << endl;
 cout << " |____|_  /____/|__|_|  / \\_____\\ \\  |______  /(____  /__|  |__| |____/\\___  >____  >"         << endl;
 cout << "        \\/            \\/         \\/         \\/      \\/                     \\/     \\/ "      << endl;
+cout << "\n";
  
 }
 
-void Interface::printMap(vector <Cell*> map, int nColumns, int nLines) const{
+void Interface::printMap(vector <Cell*> map, int nColumns) const{
     Consola::clrscr();
     titleScreen();
-    int z = 0;
     
-    for (int i = 0; i < (nColumns * nLines); i++){
-        if (i != 0 && (i % nColumns == 0)){
-            z++;
+    for (int i = 0; i <= map.size(); i++) {
+
+        if((i!=0 && i % nColumns == 0)|| i == map.size()){  //quadrados inferiores
             cout << "\n";
-            for (int j = 0; j < (nColumns); i++){
+            
+            for (int j = i-nColumns; j < i; j++) {
                 if(map[j]->getIcon() == '.'){
-                    if((i+j)%2 == 0)
+                    if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::AZUL_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::AZUL);
                 }
-                
-                if(map[j]->getIcon() == '+'){
-                    if((i+j)%2 == 0)
+            if(map[j]->getIcon() == '+'){
+                    if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERDE_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERDE);
                 }
-                
-                if(map[j]->getIcon() == 'A' || map[j]->getIcon() == 'a'){
-                    if((i+j)%2 == 0)
+            if(map[j]->getIcon() == 'A' || map[j]->getIcon() == 'a'){
+                    if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::BRANCO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::BRANCO);
                 }
                 
-                if(map[j]->getIcon() == 'B' || map[j]->getIcon() == 'b'){
-                    if((i+j)%2 == 0)
+            if(map[j]->getIcon() == 'B' || map[j]->getIcon() == 'b'){
+                    if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERMELHO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERMELHO);
                 }
-                
-                cout << "  ";
-            }
             
+            cout << "  ";
+
+            }
+
             cout << "\n";
+            
+            if(i==map.size()){
+                 Consola::setBackgroundColor(Consola::PRETO);
+                 return;
+            }
+                
         }
-        else{
-            if(map[i]->getIcon() == '.'){
-                    if((i+z)%2 == 0)
+     
+            if(map[i]->getIcon() == '.'){   //  quadrados superiores de cada Cell
+                    if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::AZUL_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::AZUL);
                 }
-                
-                if(map[i]->getIcon() == '+'){
-                    if((i+z)%2 == 0)
+            if(map[i]->getIcon() == '+'){
+                    if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERDE_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERDE);
                 }
-                
-                if(map[i]->getIcon() == 'A' || map[i]->getIcon() == 'a'){
-                    if((i+z)%2 == 0)
+            if(map[i]->getIcon() == 'A' || map[i]->getIcon() == 'a'){
+                    if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::BRANCO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::BRANCO);
                 }
                 
-                if(map[i]->getIcon() == 'B' || map[i]->getIcon() == 'b'){
-                    if((i+z)%2 == 0)
+            if(map[i]->getIcon() == 'B' || map[i]->getIcon() == 'b'){
+                    if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERMELHO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERMELHO);
                 }
             
             cout << map[i]->getIcon() << " ";
-            
-        }
     }
+
+
+   
 }
 
 string Interface::getFileName(bool correct){

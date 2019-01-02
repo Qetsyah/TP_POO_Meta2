@@ -28,6 +28,7 @@ bool Game::running(Interface &interface, Auto &autO, Player &player) {
             running = false;
         }
         else {  //CHAMA METODO DE EXECUTAR COMANDOS E MANDA VECTOR
+            interface.printMap(autO.getMap(), autO.getNColumns());
             executed = this->commandExecutor(commands);
         }
 
@@ -43,7 +44,7 @@ bool Game::commandReader(Interface &interface, vector <int> &commands) {
 
     
     do {
-        
+        cout << "here" << endl;
     command = interface.getCommand();
 
         for (int i = 0; i < wishList.size(); i++) {
@@ -55,6 +56,7 @@ bool Game::commandReader(Interface &interface, vector <int> &commands) {
                         s = true;
                         break;
                     case(1): //COMANDO PROX, PASSA Á PROCIMA FASE
+                        commands.push_back(i);
                         return true;
                         s = true;
                         break;

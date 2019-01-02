@@ -42,7 +42,7 @@ class Auto {
 public:
     
     //sets
-    bool setMap(vector <Cell*> &MAP);
+    bool setMap(vector <Cell*> MAP);
     bool setNColumns(int x);
     bool setNLines(int x);
     bool setProbPirate(int x);
@@ -60,7 +60,7 @@ public:
     bool setPirateDocks( vector <Dock*> &d);
    
     //gets
-    vector <Cell*> & getMap()const;
+    vector <Cell*> getMap();
     int getNColumns()const;
     int getNLines()const;
     int getProbPirate()const;

@@ -24,17 +24,8 @@ bool Auto::setNColumns(int x){
     return true;
 }
 
-bool Auto::setMap( vector <Cell*> &MAP){
-    for(int x = 0; x < nLines; x++){
-        for(int y = 0; y < nColumns; y++){
-            
-            map.push_back(
-            new Cell( MAP[x][y].getX()  ,
-                    MAP[x][y].getY()  ,
-                    MAP[x][y].getIcon()  ));
-        }
-        
-    }
+bool Auto::setMap( vector <Cell*> MAP){
+    map = MAP;
     return true;
 }
 
@@ -170,7 +161,9 @@ int Auto::getProbRiot() const{
 vector <Ship*> & Auto::getPirateShips() const{
     return &pirateShips ;
 }
+*/
 
-vector <Cell*> & Auto::getMap() const{
-    return &map;
-} */
+//TODO: isto
+vector <Cell*> Auto::getMap() {
+    return map;
+} 

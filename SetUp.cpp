@@ -140,6 +140,17 @@ bool SetUp::readFile(Interface &interface, Player &player, Auto &autO) {
             }
         }
     }
+    
+    /*
+    for (int kappa = 0; kappa < map.size(); kappa++) {
+        
+        if(kappa!=0 && kappa % nColumns == 0)
+            cout << "\n";
+        
+        cout << map[kappa]->getIcon();
+
+    }
+    */
 
     //Inicializar o resto das variáveis
 
@@ -216,8 +227,9 @@ bool SetUp::readFile(Interface &interface, Player &player, Auto &autO) {
         if( (a && b) == true){
             return true;
         }
-
-
+        
+        autO.setMap(map);
+        
 }
 
 

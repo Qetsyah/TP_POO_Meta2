@@ -30,7 +30,7 @@ class Interface {
 public:
 
     void titleScreen()const;
-    void printMap(vector <Cell*> map, int nCol, int nLin)const;
+    void printMap(vector <Cell*> map, int nCol)const;
     string getFileName( bool correct );
     string getCommand();
 
