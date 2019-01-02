@@ -220,7 +220,7 @@ bool SetUp::readFile(Interface &interface, Player &player, Auto &autO) {
     }
         bool a,b=false;
         
-        cout << "chegamos ao fim de ler o ficheiro" << endl;
+        //cout << "chegamos ao fim de ler o ficheiro" << endl;
         a = this->initPlayer(player);
         b = this->initAuto(autO);
         
@@ -235,12 +235,12 @@ bool SetUp::readFile(Interface &interface, Player &player, Auto &autO) {
 
 
 bool SetUp::initPlayer(Player &player) { //coloca os valore do ficheiro no player
-    cout << "entramos no que inicia as veriaveis do player" << endl;
+    //cout << "entramos no que inicia as veriaveis do player" << endl;
     bool a, b, c, d =false;
     
     if ( ( (player.setCoins(coins)) &&
            (player.setSoldiersPort(soldiersPort)) &&
-           (player.setPlayerShips(playerShips)) &&
+         //(player.setPlayerShips(playerShips)) &&
            (player.setPlayersDocks(playersDocks)) ) == true )
         return true;
    
@@ -248,7 +248,7 @@ bool SetUp::initPlayer(Player &player) { //coloca os valore do ficheiro no playe
 
 
 bool SetUp::initAuto(Auto& autO){ //coloca os valores do ficheiro no autO
-    cout << "entramos no que inicia as variaveis do auto" << endl;
+    //cout << "entramos no que inicia as variaveis do auto" << endl;
 if( ( (autO.setNColumns(nColumns)) &&
         (autO.setNLines(nLines)) &&
         (autO.setMap(map)) &&
@@ -262,8 +262,8 @@ if( ( (autO.setNColumns(nColumns)) &&
         (autO.setProbStorm(probStorm)) &&
         (autO.setProbMermaids(probMermaids)) &&
         (autO.setProbDeadCalm(probDeadCalm)) &&
-        (autO.setProbRiot(probRiot)) &&
-        (autO.setPirateShips(pirateShips)) &&
+        (autO.setProbRiot(probRiot)) /*&&
+        (autO.setPirateShips(pirateShips)) */&&
         (autO.setPirateDocks(pirateDocks))  ) == true )
     return true;
 

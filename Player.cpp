@@ -24,13 +24,13 @@ bool Player::setSoldiersPort(int x){
     return true;
 }
 
-bool Player::setPlayerShips(vector<Ship*>& v){
-    for(int i = 0; i < v.size(); i ++){
-        playerShips.push_back(new Ship(v[i]->getPosition()));
-    }
-    
-    return true;
-}
+//bool Player::setPlayerShips(vector<Ship*>& v){
+//    for(int i = 0; i < v.size(); i ++){
+//        playerShips.push_back(new Ship(v[i]->getPosition()));
+//    }
+//    
+//    return true;
+//}
 
 bool Player::setPlayersDocks(vector<Dock*>& d){
      for(int i = 0; i < d.size(); i ++){
@@ -40,4 +40,23 @@ bool Player::setPlayersDocks(vector<Dock*>& d){
     return true;
 }
 
+int Player::getCoins() const{
+    return coins;
+}
+
+int Player::getScore() const{
+    return score;
+}
+
+void Player::incCoins(int x){
+    coins += x;
+}
+
+void Player::printShipIDs(){
+    for (int i = 0; i < playerShips.size(); i++) {
+        cout << playerShips[i]->getId() << endl;
+
+    }
+
+}
 

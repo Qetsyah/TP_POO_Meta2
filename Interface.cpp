@@ -42,28 +42,35 @@ void Interface::printMap(vector <Cell*> map, int nColumns) const{
                         Consola::setBackgroundColor(Consola::AZUL_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::AZUL);
+                    
+                    cout << "  ";
                 }
-            if(map[j]->getIcon() == '+'){
+                else if(map[j]->getIcon() == '+'){
                     if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERDE_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERDE);
+                    
+                    cout << "  ";
                 }
-            if(map[j]->getIcon() == 'A' || map[j]->getIcon() == 'a'){
+                else if(map[j]->getIcon() == 'A' || map[j]->getIcon() == 'a'){
                     if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::BRANCO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::BRANCO);
+                    
+                    cout << "  ";
                 }
-                
-            if(map[j]->getIcon() == 'B' || map[j]->getIcon() == 'b'){
+                else if(map[j]->getIcon() == 'B' || map[j]->getIcon() == 'b'){
                     if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERMELHO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERMELHO);
+                    
+                    cout << "  ";
                 }
             
-            cout << "  ";
+            
 
             }
 
@@ -75,34 +82,42 @@ void Interface::printMap(vector <Cell*> map, int nColumns) const{
             }
                 
         }
-     
-            if(map[i]->getIcon() == '.'){   //  quadrados superiores de cada Cell
+     //  quadrados superiores de cada Cell
+            if(map[i]->getIcon() == '.'){   
                     if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::AZUL_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::AZUL);
+                    
+                     cout << map[i]->getIcon() << " ";
                 }
-            if(map[i]->getIcon() == '+'){
+        else if(map[i]->getIcon() == '+'){
                     if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERDE_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERDE);
+                    
+                     cout << map[i]->getIcon() << " ";
                 }
-            if(map[i]->getIcon() == 'A' || map[i]->getIcon() == 'a'){
+        else if(map[i]->getIcon() == 'A' || map[i]->getIcon() == 'a'){
                     if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::BRANCO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::BRANCO);
+                    
+                     cout << map[i]->getIcon() << " ";
                 }
                 
-            if(map[i]->getIcon() == 'B' || map[i]->getIcon() == 'b'){
+        else if(map[i]->getIcon() == 'B' || map[i]->getIcon() == 'b'){
                     if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERMELHO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERMELHO);
+                    
+                    cout << map[i]->getIcon() << " ";
                 }
             
-            cout << map[i]->getIcon() << " ";
+ 
     }
 
 

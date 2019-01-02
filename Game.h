@@ -35,10 +35,13 @@ class Game {
 public:
     bool running( Interface &interface, Auto &autO, Player &player ); // este método é o que engloba o decorrer do jogo e as três estapas
     bool commandReader(Interface &interface, vector <int> &commands);
-    bool commandExecutor(vector <int> &commands);
+    bool commandExecutor(vector <int> &commands, Auto &autO, Player &player );
     bool battles();
     bool events();
     bool exit();
+    
+    void moedas(Auto &autO, Player &player);
+    void compranav(Auto &autO, Player &player);
 
 
 };

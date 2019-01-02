@@ -23,7 +23,7 @@
 
 int Ship::counter = 1;
 
-Ship::Ship(Cell* p): position(p){
+Ship::Ship(Cell* p, char i, int sold, int wat, int cp): position(p), icon(i), solds(sold), water(wat), cap(cp){
         ID = counter++;
 }
 
@@ -36,6 +36,10 @@ bool Ship::changePosition(){
 
 Cell* Ship::getPosition() const{
     return position;
+}
+
+int Ship::getId() const{
+    return ID;
 }
 
 void Ship::setPosition(Cell* x){

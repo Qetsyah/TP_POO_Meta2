@@ -18,7 +18,7 @@
 
 class Sailboat: public Ship{
 public:
-    Sailboat(Cell * p);
+    Sailboat(Cell * p, char i, int sold, int wat, int cp);
     //Sailboat(const Sailboat& orig);
     virtual ~Sailboat();
 };

@@ -29,7 +29,7 @@ bool Game::running(Interface &interface, Auto &autO, Player &player) {
         }
         else {  //CHAMA METODO DE EXECUTAR COMANDOS E MANDA VECTOR
             interface.printMap(autO.getMap(), autO.getNColumns());
-            executed = this->commandExecutor(commands);
+            executed = this->commandExecutor(commands, autO, player);
         }
 
     } while (running == true);
@@ -44,7 +44,6 @@ bool Game::commandReader(Interface &interface, vector <int> &commands) {
 
     
     do {
-        cout << "here" << endl;
     command = interface.getCommand();
 
         for (int i = 0; i < wishList.size(); i++) {
@@ -143,7 +142,7 @@ bool Game::commandReader(Interface &interface, vector <int> &commands) {
 
 //COMMAND EXECUTOR
 
-bool Game::commandExecutor(vector <int> &commands){
+bool Game::commandExecutor(vector <int> &commands, Auto &autO, Player &player){
     for(int i = 0; i < commands.size(); i++){
             switch (commands[i]) {
                 case(0):
@@ -154,6 +153,7 @@ bool Game::commandExecutor(vector <int> &commands){
                     break;
                 case(2):
                     cout << " Comando compranav " << endl;
+                    compranav(autO, player);
                     break;
                 case(3):
                     cout << " Comando vendenav " << endl;
@@ -187,6 +187,7 @@ bool Game::commandExecutor(vector <int> &commands){
                     break;
                 case(13):
                     cout << " Comando moedas " << endl;
+                    moedas(autO, player);
                     break;
                 case(14):
                     cout << " Comando vaipara " << endl;
@@ -205,10 +206,38 @@ bool Game::commandExecutor(vector <int> &commands){
                     break;
                 case(19):
                     cout << " Comando sair" << endl;
-                    break; // need to terminate program here
+                    break; 
             }
     }
 }
 
+void Game::moedas(Auto& autO, Player& player){
+    
+    int x = 0;
+    
+    do{
+        
+        cout << "Insert a valid amount of coins!" << endl;
+        cin >> x;
+    } while(x<=0);
+    
+    player.incCoins(x);
+}
+
+void Game::compranav(Auto& autO, Player& player){
+    char type = 'v';
+    
+    do{
+        cout << "Insert a valid ship type! ('V', 'G' 'E', 'F', 'H')" << endl;
+        cin >> type;
+    } while(type != 'V' || type != 'G' || type != 'E' || type != 'F' || type != 'H');
+    
+    /*
+     
+     Ver se tem dinheiro e depois dar pushback
+     
+     
+     */
+}
 
                 

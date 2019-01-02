@@ -50,7 +50,10 @@ public:
     vector <Ship*> & getPlayerShips() const;
     vector <Dock*> & getPlayerDocks() const;
     
+    void incCoins(int x);
 
+    
+    void printShipIDs();
 };
 
 #endif /* PLAYER_H */

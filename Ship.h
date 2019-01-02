@@ -23,8 +23,12 @@ class Ship {
     Cell* position;
     char icon;
     
+    int solds;
+    int water;
+    int cap;
+    
 public:
-    Ship(Cell* p);
+    Ship(Cell* p, char i, int sold, int wat, int cp);
     ~Ship();
     
     

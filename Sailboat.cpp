@@ -13,7 +13,7 @@
 
 #include "Sailboat.h"
 
-Sailboat::Sailboat(Cell * p) : Ship(p) {
+Sailboat::Sailboat(Cell * p, char i, int sold, int wat, int cp) : Ship(p, i, sold, wat, cp) {
 }
 
 /*Sailboat::$(const Sailboat& orig){

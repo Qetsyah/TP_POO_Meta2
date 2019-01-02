@@ -39,10 +39,14 @@ OBJECTFILES= \
 	${OBJECTDIR}/Cell.o \
 	${OBJECTDIR}/Consola.o \
 	${OBJECTDIR}/Dock.o \
+	${OBJECTDIR}/Frigate.o \
+	${OBJECTDIR}/Galleon.o \
 	${OBJECTDIR}/Game.o \
+	${OBJECTDIR}/Hovercraft.o \
 	${OBJECTDIR}/Interface.o \
 	${OBJECTDIR}/Player.o \
 	${OBJECTDIR}/Sailboat.o \
+	${OBJECTDIR}/Schooner.o \
 	${OBJECTDIR}/SetUp.o \
 	${OBJECTDIR}/Ship.o \
 	${OBJECTDIR}/main.o
@@ -92,10 +96,25 @@ ${OBJECTDIR}/Dock.o: Dock.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dock.o Dock.cpp
 
+${OBJECTDIR}/Frigate.o: Frigate.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Frigate.o Frigate.cpp
+
+${OBJECTDIR}/Galleon.o: Galleon.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Galleon.o Galleon.cpp
+
 ${OBJECTDIR}/Game.o: Game.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Game.o Game.cpp
+
+${OBJECTDIR}/Hovercraft.o: Hovercraft.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Hovercraft.o Hovercraft.cpp
 
 ${OBJECTDIR}/Interface.o: Interface.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -111,6 +130,11 @@ ${OBJECTDIR}/Sailboat.o: Sailboat.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sailboat.o Sailboat.cpp
+
+${OBJECTDIR}/Schooner.o: Schooner.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Schooner.o Schooner.cpp
 
 ${OBJECTDIR}/SetUp.o: SetUp.cpp
 	${MKDIR} -p ${OBJECTDIR}

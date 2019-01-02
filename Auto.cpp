@@ -84,12 +84,12 @@ bool Auto::setProbRiot(int x){
     return true;
 }
 
-bool Auto::setPirateShips(vector<Ship*>& s){
-    for(int i = 0; i < s.size(); i++){
-        pirateShips.push_back(new Ship( s[i]->getPosition() ));
-    }
-    return true;
-}
+//bool Auto::setPirateShips(vector<Ship*>& s){
+//    for(int i = 0; i < s.size(); i++){
+//        pirateShips.push_back(new Ship( s[i]->getPosition() ));
+//    }
+//    return true;
+//}
 
 bool Auto::setPirateDocks(vector<Dock*>& d){
     for(int i = 0; i < d.size(); i++){
