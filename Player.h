@@ -32,7 +32,7 @@ class Player {
     unsigned int score;
     int soldiersPort;
     vector <Ship*> playerShips;
-    vector <Dock*> playersDocks;
+    vector <Dock*> playerDocks;
     
 public:
     Player(){}
@@ -47,8 +47,8 @@ public:
 //gets
     int getCoins() const;
     int getScore() const;
-    vector <Ship*> & getPlayerShips() const;
-    vector <Dock*> & getPlayerDocks() const;
+    vector <Ship*> & getPlayerShips();
+    vector <Dock*> & getPlayerDocks();
     
     void incCoins(int x);
 

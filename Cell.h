@@ -33,4 +33,6 @@ public:
     char getIcon() const;
 };
 
+bool operator==(const Cell& pri, const Cell& seg);
+
 #endif /* CELL_H */

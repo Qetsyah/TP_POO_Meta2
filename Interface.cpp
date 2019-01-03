@@ -27,25 +27,44 @@ cout << "\n";
  
 }
 
-void Interface::printMap(vector <Cell*> map, int nColumns) const{
+void Interface::printMap(Auto &autO, Player &player) const{
     Consola::clrscr();
     titleScreen();
     
-    for (int i = 0; i <= map.size(); i++) {
+    bool boat = false;
+    int index;
+    
+    for (int i = 0; i <= autO.getMap().size(); i++) {
+        
+        for (int k = 0; k < player.getPlayerShips().size(); k++) {
+            if(autO.getMap()[i] == player.getPlayerShips()[k]->getPosition()){
+                //cout << "I'm here" << endl;
+                boat = true;
+                index = k;
+            }
+                
 
-        if((i!=0 && i % nColumns == 0)|| i == map.size()){  //quadrados inferiores
+        }
+
+
+        if((i!=0 && i % autO.getNColumns() == 0)|| i == autO.getMap().size()){  //quadrados inferiores
             cout << "\n";
             
-            for (int j = i-nColumns; j < i; j++) {
-                if(map[j]->getIcon() == '.'){
+            for (int j = i-autO.getNColumns(); j < i; j++) {
+                if(autO.getMap()[j]->getIcon() == '.'){
                     if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::AZUL_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::AZUL);
-                    
+                    if(boat == true)
+                        if(player.getPlayerShips()[index]->getId() < 10)
+                            cout << player.getPlayerShips()[index]->getId() << " ";
+                        else
+                            cout << player.getPlayerShips()[index]->getId();
+                    else
                     cout << "  ";
                 }
-                else if(map[j]->getIcon() == '+'){
+                else if(autO.getMap()[j]->getIcon() == '+'){
                     if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERDE_CLARO);
                     else
@@ -53,7 +72,7 @@ void Interface::printMap(vector <Cell*> map, int nColumns) const{
                     
                     cout << "  ";
                 }
-                else if(map[j]->getIcon() == 'A' || map[j]->getIcon() == 'a'){
+                else if(autO.getMap()[j]->getIcon() == 'A' || autO.getMap()[j]->getIcon() == 'a'){
                     if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::BRANCO_CLARO);
                     else
@@ -61,7 +80,7 @@ void Interface::printMap(vector <Cell*> map, int nColumns) const{
                     
                     cout << "  ";
                 }
-                else if(map[j]->getIcon() == 'B' || map[j]->getIcon() == 'b'){
+                else if(autO.getMap()[j]->getIcon() == 'B' || autO.getMap()[j]->getIcon() == 'b'){
                     if(j % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERMELHO_CLARO);
                     else
@@ -76,47 +95,51 @@ void Interface::printMap(vector <Cell*> map, int nColumns) const{
 
             cout << "\n";
             
-            if(i==map.size()){
+            if(i==autO.getMap().size()){
                  Consola::setBackgroundColor(Consola::PRETO);
                  return;
             }
                 
         }
      //  quadrados superiores de cada Cell
-            if(map[i]->getIcon() == '.'){   
+            if(autO.getMap()[i]->getIcon() == '.'){   
                     if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::AZUL_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::AZUL);
                     
-                     cout << map[i]->getIcon() << " ";
+                    if(boat == true) 
+                        cout << autO.getMap()[i]->getIcon() << player.getPlayerShips()[index]->getIcn();
+                    else
+                        cout << autO.getMap()[i]->getIcon() << " ";
                 }
-        else if(map[i]->getIcon() == '+'){
+        else if(autO.getMap()[i]->getIcon() == '+'){
                     if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERDE_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERDE);
                     
-                     cout << map[i]->getIcon() << " ";
+                     cout << autO.getMap()[i]->getIcon() << " ";
                 }
-        else if(map[i]->getIcon() == 'A' || map[i]->getIcon() == 'a'){
+        else if(autO.getMap()[i]->getIcon() == 'A' || autO.getMap()[i]->getIcon() == 'a'){
                     if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::BRANCO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::BRANCO);
                     
-                     cout << map[i]->getIcon() << " ";
+                     cout << autO.getMap()[i]->getIcon() << " ";
                 }
                 
-        else if(map[i]->getIcon() == 'B' || map[i]->getIcon() == 'b'){
+        else if(autO.getMap()[i]->getIcon() == 'B' || autO.getMap()[i]->getIcon() == 'b'){
                     if(i % 2 == 0)
                         Consola::setBackgroundColor(Consola::VERMELHO_CLARO);
                     else
                         Consola::setBackgroundColor(Consola::VERMELHO);
                     
-                    cout << map[i]->getIcon() << " ";
+                    cout << autO.getMap()[i]->getIcon() << " ";
                 }
-            
+        
+        boat = false;
  
     }
 

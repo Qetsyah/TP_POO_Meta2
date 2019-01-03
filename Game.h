@@ -16,6 +16,11 @@
 
 
 #include "SetUp.h"
+#include "Sailboat.h"
+#include "Galleon.h"
+#include "Schooner.h"
+#include "Frigate.h"
+#include "Hovercraft.h"
 
 #include <vector>
 #include <iostream>
@@ -43,7 +48,8 @@ public:
     void moedas(Auto &autO, Player &player);
     void compranav(Auto &autO, Player &player);
 
-
+    void moveShips(Auto &autO, Player &player); // usado no prox
+    Cell* checkAround(Ship* ship, Auto &autO);
 };
 
 #endif /* GAME_H */

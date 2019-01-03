@@ -34,7 +34,7 @@ bool Player::setSoldiersPort(int x){
 
 bool Player::setPlayersDocks(vector<Dock*>& d){
      for(int i = 0; i < d.size(); i ++){
-        playersDocks.push_back( new Dock(d[i]->getSoldiers(),d[i]->getThisIsMe()) );
+        playerDocks.push_back( new Dock(d[i]->getSoldiers(),d[i]->getThisIsMe()) );
     }
     
     return true;
@@ -60,3 +60,10 @@ void Player::printShipIDs(){
 
 }
 
+vector <Dock*> & Player::getPlayerDocks(){
+    return playerDocks;
+}
+
+vector <Ship*> & Player::getPlayerShips(){
+    return playerShips;
+}

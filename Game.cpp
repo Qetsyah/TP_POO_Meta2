@@ -16,7 +16,7 @@
 //RUNNING
 
 bool Game::running(Interface &interface, Auto &autO, Player &player) {
-    bool running, executed, wishes = true;
+    bool running = true, executed, wishes = true;
     vector <int> commands;
     
     do {
@@ -28,8 +28,10 @@ bool Game::running(Interface &interface, Auto &autO, Player &player) {
             running = false;
         }
         else {  //CHAMA METODO DE EXECUTAR COMANDOS E MANDA VECTOR
-            interface.printMap(autO.getMap(), autO.getNColumns());
+            interface.printMap(autO, player);
             executed = this->commandExecutor(commands, autO, player);
+            //running = true;
+            interface.printMap(autO, player);
         }
 
     } while (running == true);
@@ -150,10 +152,12 @@ bool Game::commandExecutor(vector <int> &commands, Auto &autO, Player &player){
                     break;
                 case(1):
                     cout << " Comando prox " << endl;
+                    compranav(autO, player);
+                    moveShips(autO, player);
                     break;
                 case(2):
                     cout << " Comando compranav " << endl;
-                    compranav(autO, player);
+                    compranav(autO, player);                    
                     break;
                 case(3):
                     cout << " Comando vendenav " << endl;
@@ -225,12 +229,19 @@ void Game::moedas(Auto& autO, Player& player){
 }
 
 void Game::compranav(Auto& autO, Player& player){
-    char type = 'v';
+    char type;
+    bool validType = false;
     
     do{
         cout << "Insert a valid ship type! ('V', 'G' 'E', 'F', 'H')" << endl;
         cin >> type;
-    } while(type != 'V' || type != 'G' || type != 'E' || type != 'F' || type != 'H');
+        
+        if(type == 'V' || type == 'G' || type == 'E' || type == 'F' || type == 'H')
+            validType = true;
+        
+    } while(!validType);
+    
+    
     
     /*
      
@@ -238,6 +249,91 @@ void Game::compranav(Auto& autO, Player& player){
      
      
      */
+    
+    //Cell* p, char i, int sold, int wat, int cp
+    
+    if(player.getCoins() >= 200){
+        if(type == 'V'){
+            player.getPlayerShips().push_back(new Sailboat(player.getPlayerDocks()[0]->getThisIsMe(), type, 75, 200, 100));
+        }
+        if(type == 'G'){
+            player.getPlayerShips().push_back(new Galleon(player.getPlayerDocks()[0]->getThisIsMe(), type, 75, 200, 100));
+        }
+        if(type == 'E'){
+            player.getPlayerShips().push_back(new Schooner(player.getPlayerDocks()[0]->getThisIsMe(), type, 75, 200, 100));
+        }
+        if(type == 'F'){
+            player.getPlayerShips().push_back(new Frigate(player.getPlayerDocks()[0]->getThisIsMe(), type, 75, 200, 100));
+        }
+        if(type == 'H'){
+            player.getPlayerShips().push_back(new Hovercraft(player.getPlayerDocks()[0]->getThisIsMe(), type, 75, 200, 100));
+        }
+        
+        player.incCoins(-200);
+        
+        //cout << player.getPlayerShips()[0]->getPosition()->getY() << endl;
+    }
 }
 
+void Game::moveShips(Auto& autO, Player& player){
+    
+    Cell* newPos;
+    
+    for (int i = 0; i < player.getPlayerShips().size(); i++) {
+        newPos = checkAround(player.getPlayerShips()[i], autO);
+        if (newPos != nullptr){
+            player.getPlayerShips()[i]->setPosition(newPos);
+            cout << "Ship " << player.getPlayerShips()[i]->getId() << " moved sucessfully!" << endl;
+            //cout << player.getPlayerShips()[i]->getPosition()->getX() << endl;
+            //cout << player.getPlayerShips()[i]->getPosition()->getY() << endl;
+        }
+
+    }
+
+}
+
+Cell* Game::checkAround(Ship* ship, Auto& autO){
+    int x = ship->getPosition()->getX();
+    int y = ship->getPosition()->getY();
+    
+    /*9 if else*/
+    
+    if(autO.getMap()[(x-1)*(y-1)]->getIcon()=='.'){
+        cout << "ifelse 1" << endl;
+        return autO.getMap()[(x-1)*(y-1)];
+    }else 
+        if(autO.getMap()[(x)*(y-1)]->getIcon()=='.'){
+        cout << "ifelse 2" << endl;
+        return autO.getMap()[(x)*(y-1)];
+    }else 
+        if(autO.getMap()[(x+1)*(y-1)]->getIcon()=='.'){
+        cout << "ifelse 3" << endl;
+        return autO.getMap()[(x+1)*(y-1)];
+    }else 
+        if(autO.getMap()[(x-1)*(y)]->getIcon()=='.'){
+        cout << "ifelse 4" << endl;
+        return autO.getMap()[(x-1)*(y)];
+    }else 
+        if(autO.getMap()[(x+1)*(y)]->getIcon()=='.'){
+        cout << "ifelse 5" << endl;
+        return autO.getMap()[(x-1)*(y)];
+    }else 
+        if(autO.getMap()[(x-1)*(y+1)]->getIcon()=='.'){
+        cout << "ifelse 6" << endl;
+        return autO.getMap()[(x-1)*(y+1)];
+    }else 
+        if(autO.getMap()[(x)*(y+1)]->getIcon()=='.'){
+        cout << "ifelse 7" << endl;
+        return autO.getMap()[(x)*(y+1)];
+    }else 
+        if(autO.getMap()[(x+1)*(y+1)]->getIcon()=='.'){
+        cout << "ifelse 8" << endl;
+        return autO.getMap()[(x+1)*(y+1)];
+    }else {
+            
+            cout << "shit" << endl;
+            return nullptr;
+    } 
+
+}
                 

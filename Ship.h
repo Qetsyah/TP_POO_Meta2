@@ -37,7 +37,7 @@ public:
 //Gets
     int getId() const;
     Cell* getPosition() const;
-    
+    char getIcn() const;
 //sets
     void setPosition (Cell* x);
     void setPosition (int x, int y);

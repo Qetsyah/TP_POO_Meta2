@@ -42,6 +42,10 @@ int Ship::getId() const{
     return ID;
 }
 
+char Ship::getIcn() const{
+    return icon;
+}
+
 void Ship::setPosition(Cell* x){
     position = x;
 }
@@ -50,4 +54,5 @@ void Ship::setPosition(int x, int y){
     position->setX(x);
     position->setY(y);
 }
+
 

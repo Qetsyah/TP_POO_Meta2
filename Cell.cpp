@@ -37,3 +37,7 @@ int Cell::getX() const{
 int Cell::getY() const{
     return y;
 }
+
+bool operator==(const Cell& pri, const Cell& seg){
+    return ((pri.getX() == seg.getX()) && (pri.getY() == seg.getY()));
+}

@@ -21,6 +21,7 @@
 #include <string>
 
 #include "Auto.h"
+#include "Player.h"
 
 
 using namespace std;
@@ -30,7 +31,7 @@ class Interface {
 public:
 
     void titleScreen()const;
-    void printMap(vector <Cell*> map, int nCol)const;
+    void printMap(Auto &autO, Player &player)const;
     string getFileName( bool correct );
     string getCommand();
 
